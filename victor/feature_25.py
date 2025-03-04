@@ -347,6 +347,15 @@ class MergedDataLoader(BaseEstimator):
         X = X.loc[common_index]
         ret_ser_filtered = ret_ser_filtered.loc[common_index]
 
+        # -----  Create market_ser attribute  -----
+        if "PBUS" not in df_merged.columns:
+            raise ValueError("Market column 'PBUS' not found in market_data.csv.")
+        market_ser_raw = df_merged["PBUS"]
+        market_ser_filtered = filter_date_range(market_ser_raw, start_date, end_date).dropna()
+        market_ser_filtered = market_ser_filtered.loc[common_index]  # align to common_index
+
         self.X = X
         self.ret_ser = ret_ser_filtered
+        self.market_ser = market_ser_filtered  # <--- now you have a separate attribute
+
         return self
