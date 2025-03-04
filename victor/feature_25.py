@@ -339,8 +339,13 @@ class MergedDataLoader(BaseEstimator):
         X.dropna(inplace=True)
         valid_no_nan(X)
 
-        # Also filter ret_ser by date
+        # Also filter ret_ser by date and drop NA
         ret_ser_filtered = filter_date_range(ret_ser_raw, start_date, end_date).dropna()
+
+        # Align the indices of X and ret_ser_filtered by taking the intersection
+        common_index = X.index.intersection(ret_ser_filtered.index)
+        X = X.loc[common_index]
+        ret_ser_filtered = ret_ser_filtered.loc[common_index]
 
         self.X = X
         self.ret_ser = ret_ser_filtered
