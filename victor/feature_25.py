@@ -334,10 +334,13 @@ class MergedDataLoader(BaseEstimator):
         # 4) Pass ret_ser and the merged DataFrame to feature_engineer
         df_features_all = feature_engineer(ret_ser_raw, df_merged, ver=self.ver)
 
-        # 5) Filter by date range, drop NaNs, then validate
+        # 5) Filter by date range, drop NaNs and zeros, then validate
         X = filter_date_range(df_features_all, start_date, end_date)
-        X.dropna(inplace=True)
+        #X.replace(0, np.nan, inplace=True)  # Convert 0s to NaNs
+        X.dropna(inplace=True)  # Drop rows with NaNs (including original NaNs and converted 0s)
         valid_no_nan(X)
+
+
 
         # Also filter ret_ser by date and drop NA
         ret_ser_filtered = filter_date_range(ret_ser_raw, start_date, end_date).dropna()
