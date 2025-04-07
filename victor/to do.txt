@@ -1,11 +1,13 @@
-why is plot data looking weird
-
-why are wrights not adding to 1?
-
 consider random search or Bayesian optimization to limit grid search (like Shu suggests - suggesting limiting grid search though not explicitly suggesting how. By using either random search or Bayesian optimization, you avoid enumerating a huge grid of hyperparameter values and thus reduce computational overhead. In Shu et al. (2025), they mention “avoiding a large grid” by limiting how many λλ and κκ points they test. One approach is simply to pick a small, sensible grid (e.g., 5 values for λλ, 2–3 for κκ), or you can adopt random or Bayesian search to systematically explore the hyperparameter space in a more efficient way.)
 
-see if in the cross validation strategy you are accessing the returns through the package function or other
+Can we improve the data. I think the 0 return days are fucking with the model
 
-implement shift count and sharpe for the optimal model
+Is the return calculated correctly on mondays? I.e. is it trying to divide by sunday or friday?
 
-also save the sharpe for each grid search to see where it breaks down and graph it
+
+for the validation rolling pre processing, make sure that you are looking backwards. i.e. not rolling 6 months forward and still use t+6mth to standardize first day
+
+
+Make sure vlad does:
+    Rolling covariance estimation
+    The day after trades
