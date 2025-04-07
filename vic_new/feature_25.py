@@ -1,3 +1,9 @@
+"""
+feature_25.py Module
+
+"""
+
+
 import os
 import numpy as np
 import pandas as pd
@@ -360,5 +366,6 @@ class MergedDataLoader(BaseEstimator):
         self.X = X
         self.ret_ser = ret_ser_filtered
         self.market_ser = market_ser_filtered  # <--- now you have a separate attribute
+        self.active_ret = compute_active_return(ret_ser_filtered, market_ser_filtered)
 
         return self
