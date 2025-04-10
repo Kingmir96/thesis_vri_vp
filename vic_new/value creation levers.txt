@@ -1,0 +1,3 @@
+Cross val:
+    Initial set training length (eg 8 years)
+    Max training length (eg 12 years)
