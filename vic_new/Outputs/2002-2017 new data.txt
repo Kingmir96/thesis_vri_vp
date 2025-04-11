@@ -1,0 +1,54 @@
+==============================================================
+Running SJM cross-validation for factor = iwf
+==============================================================
+Training starts: 2002-08-29 00:00:00 ends: 2017-12-29 00:00:00
+Testing starts: 2018-01-02 00:00:00 ends: 2025-04-03 00:00:00
+[iwf] Best Jump Penalty (λ): 93.63292088239417
+[iwf] Best Max Features (κ²): 5
+[iwf] Sharpe with best hyperparams: 0.1940215170408684
+
+==============================================================
+Running SJM cross-validation for factor = mtum
+==============================================================
+Training starts: 2002-08-29 00:00:00 ends: 2017-12-29 00:00:00
+Testing starts: 2018-01-02 00:00:00 ends: 2025-04-03 00:00:00
+[mtum] Best Jump Penalty (λ): 72.6481383605727
+[mtum] Best Max Features (κ²): 5
+[mtum] Sharpe with best hyperparams: 0.8527674238412294
+
+==============================================================
+Running SJM cross-validation for factor = qual
+==============================================================
+Training starts: 2002-08-29 00:00:00 ends: 2017-12-29 00:00:00
+Testing starts: 2018-01-02 00:00:00 ends: 2025-04-03 00:00:00
+[qual] Best Jump Penalty (λ): 79.06043210907701
+[qual] Best Max Features (κ²): 4
+[qual] Sharpe with best hyperparams: 0.4407864398200115
+
+==============================================================
+Running SJM cross-validation for factor = size
+==============================================================
+Training starts: 2002-08-29 00:00:00 ends: 2017-12-29 00:00:00
+Testing starts: 2018-01-02 00:00:00 ends: 2025-04-03 00:00:00
+[size] Best Jump Penalty (λ): 43.733710577327464
+[size] Best Max Features (κ²): 10
+[size] Sharpe with best hyperparams: 0.22379891448786776
+
+==============================================================
+Running SJM cross-validation for factor = usmv
+==============================================================
+Training starts: 2002-08-29 00:00:00 ends: 2017-12-29 00:00:00
+Testing starts: 2018-01-02 00:00:00 ends: 2025-04-03 00:00:00
+[usmv] Best Jump Penalty (λ): 362.3962320002086
+[usmv] Best Max Features (κ²): 7
+[usmv] Sharpe with best hyperparams: 0.03937205366228824
+
+==============================================================
+Running SJM cross-validation for factor = vlue
+==============================================================
+Training starts: 2002-08-29 00:00:00 ends: 2017-12-29 00:00:00
+Testing starts: 2018-01-02 00:00:00 ends: 2025-04-03 00:00:00
+[vlue] Best Jump Penalty (λ): 93.63292088239417
+[vlue] Best Max Features (κ²): 4
+[vlue] Sharpe with best hyperparams: 0.5866666285767713
+

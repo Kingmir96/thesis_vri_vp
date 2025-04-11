@@ -1,18 +1,14 @@
 To do:
-    USE THE QUARTER REBALANCE FILE IF IT WORKS. OTHERWISE DELETE AND TRY AGAIN
-    New data
     Transaction costs
+    Fix such that trading is done with ETF data
     Refit? Cross validate forward?
-    How often rebalance? Right now there is new covariance every day, which could eat up returns when we implement transaction costs
-    Read vlads code
-    Risk free rate for sharpe
     Add function to check portfolio weights over time
-    Need to rebalance the equal weight portfolio as we move forward in time (Shu does quartely)
     to get the plots of out of sample state sequence and cumrets we can create a variable that we append each month with the predicitions
 
+    Read vlads code
+    Risk free rate for sharpe
 
 Check:
-    When we take the historical mean return for each state, is that the active return we are accessing?
     Which return do we feed the BL for market?
     make sure 2.5 delta
 

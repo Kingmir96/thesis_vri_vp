@@ -365,7 +365,7 @@ class MergedDataLoader(BaseEstimator):
 
         self.X = X
         self.ret_ser = ret_ser_filtered
-        self.market_ser = market_ser_filtered  # <--- now you have a separate attribute
+        self.market_ser = market_ser_filtered
         self.active_ret = compute_active_return(ret_ser_filtered, market_ser_filtered)
 
         return self
