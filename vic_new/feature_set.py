@@ -108,7 +108,7 @@ def _diff_ewma(series: pd.Series, window: int) -> pd.Series:
 def compute_macro_features(df_raw: pd.DataFrame, window: int = 21) -> pd.DataFrame:
     """
     Build the macro features if columns are present in df_raw:
-      1. Market return (EWMA of daily returns) => column "PBUS" or "SP500" or something
+      1. Market return (EWMA of daily returns) => column "mkt" or "SP500" or something
       2. VIX => log -> diff -> EWMA
       3. 2-year yield => diff -> EWMA
       4. 10-year minus 2-year => diff -> EWMA
@@ -118,8 +118,8 @@ def compute_macro_features(df_raw: pd.DataFrame, window: int = 21) -> pd.DataFra
     features = {}
     
     # 1) Market return (EWMA of daily returns)
-    if "PBUS" in df_raw.columns:
-        features["MarketReturn_EWMA_21"] = df_raw["PBUS"].ewm(halflife=window).mean()
+    if "mkt" in df_raw.columns:
+        features["MarketReturn_EWMA_21"] = df_raw["mkt"].ewm(halflife=window).mean()
     
     # 2) VIX => log -> diff -> EWMA(21)
     if "VIX" in df_raw.columns:
@@ -149,14 +149,14 @@ def feature_engineer(ret_ser: pd.Series, df_raw: pd.DataFrame = None, ver: str =
     """
     
     if ver == "v1":
-        if df_raw is None or "PBUS" not in df_raw.columns:
-            raise ValueError("df_raw must contain a 'PBUS' column for market return.")
+        if df_raw is None or "mkt" not in df_raw.columns:
+            raise ValueError("df_raw must contain a 'mkt' column for market return.")
         
         # --------------------
         # Factor-based Features
         # --------------------
         factor_return = ret_ser
-        market_return = df_raw["PBUS"]
+        market_return = df_raw["mkt"]
         
         # Active return
         active_return = compute_active_return(factor_return, market_return)
@@ -194,11 +194,11 @@ def feature_engineer(ret_ser: pd.Series, df_raw: pd.DataFrame = None, ver: str =
         # --------------------
         # Factor-based Features (from v1)
         # --------------------
-        if df_raw is None or "PBUS" not in df_raw.columns:
-            raise ValueError("df_raw must contain a 'PBUS' column for market return.")
+        if df_raw is None or "mkt" not in df_raw.columns:
+            raise ValueError("df_raw must contain a 'mkt' column for market return.")
         
         factor_return = ret_ser
-        market_return = df_raw["PBUS"]
+        market_return = df_raw["mkt"]
         
         active_return = compute_active_return(factor_return, market_return)
         price = 100 * (1 + factor_return).cumprod()
@@ -256,7 +256,7 @@ class DataLoader(BaseEstimator):
         if self.file_path.endswith(".pkl"):
             df_raw = pd.read_pickle(self.file_path).dropna()
         elif self.file_path.endswith(".csv"):
-            df_raw = pd.read_csv(self.file_path, parse_dates=["Date"], index_col="Date").dropna()
+            df_raw = pd.read_csv(self.file_path, parse_dates=["date"], index_col="date").dropna()
         else:
             raise ValueError("Unsupported file format. Use .csv or .pkl")
 
@@ -313,14 +313,14 @@ class MergedDataLoader(BaseEstimator):
         # 1) Read both CSVs
         df_factors = pd.read_csv(
             self.factor_file,
-            parse_dates=["Date"],
-            index_col="Date"
+            parse_dates=["date"],
+            index_col="date"
         ).dropna()
 
         df_market = pd.read_csv(
             self.market_file,
-            parse_dates=["Date"],
-            index_col="Date"
+            parse_dates=["date"],
+            index_col="date"
         ).dropna()
 
         # 2) Merge on date index (inner join so we only keep matching dates)
@@ -357,9 +357,9 @@ class MergedDataLoader(BaseEstimator):
         ret_ser_filtered = ret_ser_filtered.loc[common_index]
 
         # -----  Create market_ser attribute  -----
-        if "PBUS" not in df_merged.columns:
-            raise ValueError("Market column 'PBUS' not found in market_data.csv.")
-        market_ser_raw = df_merged["PBUS"]
+        if "mkt" not in df_merged.columns:
+            raise ValueError("Market column 'mkt' not found in market_data.csv.")
+        market_ser_raw = df_merged["mkt"]
         market_ser_filtered = filter_date_range(market_ser_raw, start_date, end_date).dropna()
         market_ser_filtered = market_ser_filtered.loc[common_index]  # align to common_index
 
