@@ -1,5 +1,6 @@
 To do:
     try feeding absolute views instead
+    fix first day of month bug
     pass covariance matrix instead
     Transaction costs - for both model and EW rebalance
     Fix such that trading is done with ETF data
