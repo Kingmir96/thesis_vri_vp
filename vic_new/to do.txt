@@ -1,12 +1,12 @@
 To do:
-    Transaction costs
+    try feeding absolute views instead
+    pass covariance matrix instead
+    Transaction costs - for both model and EW rebalance
     Fix such that trading is done with ETF data
-    Refit? Cross validate forward?
-    Add function to check portfolio weights over time
     to get the plots of out of sample state sequence and cumrets we can create a variable that we append each month with the predicitions
     add market model that predicts crash and so we pull out 
     What to do in invalid regime distribution - i.e. fall back on EW?
-    Start dates are 31 jan - should be 1 jan
+    Start dates are 31 jan - should be 1 jan - some holes in the weights
 
     New fwd cross val: 
         Make the window rolling forward, e.g. 12 year forward rolling or whatever
