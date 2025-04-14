@@ -1,0 +1,5 @@
+cross val function:
+	Look at:
+	val_size 252 days?
+	fit_transform done the same on test portion?
+	double check roll forward and min/max window length
