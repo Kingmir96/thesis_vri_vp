@@ -1,23 +1,14 @@
 To do:
-    try feeding absolute views instead
-    fix first day of month bug
-    pass covariance matrix instead
-    Transaction costs - for both model and EW rebalance
-    Fix such that trading is done with ETF data
     to get the plots of out of sample state sequence and cumrets we can create a variable that we append each month with the predicitions
-    add market model that predicts crash and so we pull out 
-    What to do in invalid regime distribution - i.e. fall back on EW?
     Start dates are 31 jan - should be 1 jan - some holes in the weights
+    Insert optionality to only trade if at least one of the factors have a regime shift
+    check other hyperparms - avg over time, loop over different tests. rerurn cross val (after GPT have a look at it and )
 
-    New fwd cross val: 
-        Make the window rolling forward, e.g. 12 year forward rolling or whatever
 
     Read vlads code
     Risk free rate for sharpe
 
 Check:
     Which return do we feed the BL for market?
-    make sure 2.5 delta
-
 
 Take all the BL code, take the documentation, and ask gpt to evaluate whether makes sense
