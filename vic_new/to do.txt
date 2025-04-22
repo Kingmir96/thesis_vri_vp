@@ -14,3 +14,11 @@ To do:
 
 
 Take all the BL code, take the documentation, and ask gpt to evaluate whether makes sense
+
+
+
+Today:
+    test run with new hyperparms (starting with the 2017 frame)
+    Set up loop to see which dates are best
+    test when restricting hyperparms (can we loop this too somehow?)
+    set up the tracking error
