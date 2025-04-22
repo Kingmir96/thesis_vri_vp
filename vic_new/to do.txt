@@ -1,14 +1,16 @@
 To do:
     to get the plots of out of sample state sequence and cumrets we can create a variable that we append each month with the predicitions
-    Start dates are 31 jan - should be 1 jan - some holes in the weights
-    Insert optionality to only trade if at least one of the factors have a regime shift
     check other hyperparms - avg over time, loop over different tests. rerurn cross val (after GPT have a look at it and )
+    what historical data is cov computed on for the first days? 
+    Understyand what the 6 year cross val length is needed for - we recross val every 6 months so why need 6 years for cross val? or is it initial cross val is 6 years with tining every 6M until trading starts?
+    tracking error
+    fsctor historical expected return short or long window? e.g. state 0 how far back we want to take mean?
+    when you implement the hyperparms, make sure the hyperparm from HY1 is used first in Hy2 so no look forward
+    consider doing the 
+
+    cross val ideas: https://chatgpt.com/share/6806ac0e-cf5c-800d-8e5a-a88097b091c0
 
 
-    Read vlads code
-    Risk free rate for sharpe
 
-Check:
-    Which return do we feed the BL for market?
 
 Take all the BL code, take the documentation, and ask gpt to evaluate whether makes sense
