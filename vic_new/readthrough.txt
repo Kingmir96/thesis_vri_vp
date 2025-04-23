@@ -1,5 +1,10 @@
 cross val function:
 	Look at:
-	val_size 252 days?
-	fit_transform done the same on test portion?
-	double check roll forward and min/max window length
+		val_size 252 days?
+		fit_transform done the same on test portion?
+		double check roll forward and min/max window length
+		make the model.fit take active return as ret_ser instead and then remove manual calc of active ret. Make sure that no other place in the code does manual calc of active return
+
+	Changes made:
+		Now calculates in sampel active return by state by using market return by state and not avg across all
+		Changed val_size to 6 years and intial train size to 8 years. also roll forward every 6 months instread (before it was based on the val_size)		
