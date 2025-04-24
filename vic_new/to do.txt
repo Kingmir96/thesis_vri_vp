@@ -12,6 +12,6 @@ Take all the BL code, take the documentation, and ask gpt to evaluate whether ma
 
 
 Today:
-    Set up loop to see which dates are best
-    test when restricting hyperparms (can we loop this too somehow?)
-    Run new new hyperparms on TE models
+    Relative views
+    Check regime predicitions
+    Why isnt the model trading? Seems to be mostly EW with ability to derisk in crashes
