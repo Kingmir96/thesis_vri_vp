@@ -5,13 +5,15 @@ To do:
     cross val ideas: https://chatgpt.com/share/6806ac0e-cf5c-800d-8e5a-a88097b091c0
 
 
-
+Other configs:
+    Restricted lambdas with tracking errors - the restricted runs i did was not implemented TE
 
 Take all the BL code, take the documentation, and ask gpt to evaluate whether makes sense
 
 
 
 Today:
-    Relative views
-    Check regime predicitions
-    Why isnt the model trading? Seems to be mostly EW with ability to derisk in crashes
+    Relative views - try different crossval methods over night
+
+
+Pivot paper to good at derisking but not factor rotatrion? https://chatgpt.com/share/680a97b6-0ec0-800d-b3d9-9fa8e6d1c881
