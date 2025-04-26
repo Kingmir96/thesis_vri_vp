@@ -6,6 +6,8 @@ To do:
 
 	fit models on raw return
 
+include market buy and hold in return comps
+
 
 Today:
     Send to Johan
