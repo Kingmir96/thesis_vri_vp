@@ -5,12 +5,15 @@ To do:
     cross val ideas: https://chatgpt.com/share/6806ac0e-cf5c-800d-8e5a-a88097b091c0
 
 
+Today:
+    Send to Johan
+
 Other configs:
     Restricted lambdas with tracking errors - the restricted runs i did was not implemented TE
     Rolling expected return (e.g. lookback window of some years vs current all time)
 
 
-
+the max sharpe is not using max sharpe function - move over the new implementation from allcoation_results
 
 
 Pivot paper to good at derisking but not factor rotatrion? https://chatgpt.com/share/680a97b6-0ec0-800d-b3d9-9fa8e6d1c881

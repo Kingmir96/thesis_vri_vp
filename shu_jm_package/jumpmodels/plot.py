@@ -154,6 +154,49 @@ def plot_cumret(ret_df: Union[PD_TYPE, dict],
     convert_yaxis_to_percent(ax)
     return ax
 
+def plot_cumret_compounded(ret_df: Union[PD_TYPE, dict],
+                           start_date: DATE_TYPE = None,
+                           end_date: DATE_TYPE = None,
+                           ax: AXES_TYPE = None,
+                           ylabel_ret: str = "Cumulative Returns") -> plt.Axes:
+    """
+    Same signature as `plot_cumret`, but draws *compounded* wealth
+    (geometric cumulative return) instead of a simple running sum.
+
+    Parameters
+    ----------
+    ret_df : DataFrame or dict
+        Period-by-period returns (not prices).
+
+    start_date, end_date : str or datetime.date, optional
+        Date bounds for the plot.
+
+    ax : plt.Axes, optional
+        Destination axes.
+
+    ylabel_ret : str, optional
+        Y-axis label.
+
+    Returns
+    -------
+    plt.Axes
+        Axes with the compounded wealth curves.
+    """
+    ax = check_axes(ax)
+
+    # Filter & coerce to DataFrame
+    ret_df = filter_date_range(pd.DataFrame(ret_df), start_date, end_date)
+    ret_df.index.name = None
+
+    # ----- geometric cumulation -----
+    compounded = (1 + ret_df).cumprod() - 1     # wealth index – 1
+    compounded.plot(ax=ax)
+    # --------------------------------
+
+    ax.set(ylabel=ylabel_ret)
+    convert_yaxis_to_percent(ax)
+    return ax
+
 ############################
 ## plot regimes
 ############################
