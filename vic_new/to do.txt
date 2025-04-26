@@ -4,6 +4,8 @@ To do:
 
     cross val ideas: https://chatgpt.com/share/6806ac0e-cf5c-800d-8e5a-a88097b091c0
 
+	fit models on raw return
+
 
 Today:
     Send to Johan
